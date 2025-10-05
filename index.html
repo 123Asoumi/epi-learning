@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epi-Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+    <style>
+      /* This rule creates a stacking context for the app, which ensures
+         that the z-indexed star background appears correctly above the
+         body's background color but behind the app's content. */
+      #root {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .aspect-ratio-16-9 {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      }
+      .aspect-ratio-16-9 iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      /* Star Background Styles */
+      @keyframes move-stars {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-100vh);
+        }
+      }
+
+      .stars-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200vh; /* Taller than viewport for vertical animation */
+        background-repeat: repeat;
+      }
+      
+      /* Smallest stars, moving slowest */
+      .stars {
+        background-image: radial-gradient(1px 1px at 25px 25px, #4ade80, transparent),
+                          radial-gradient(1px 1px at 75px 75px, #4ade80, transparent);
+        background-size: 100px 100px;
+        animation: move-stars 200s linear infinite;
+      }
+
+      /* Medium stars, medium speed */
+      .stars2 {
+        background-image: radial-gradient(1.5px 1.5px at 50px 50px, #4ade80, transparent),
+                           radial-gradient(1.5px 1.5px at 120px 120px, #4ade80, transparent);
+        background-size: 150px 150px;
+        background-position: 0px 20px;
+        animation: move-stars 150s linear infinite;
+      }
+
+      /* Largest stars, moving fastest for parallax effect */
+      .stars3 {
+        background-image: radial-gradient(2px 2px at 100px 100px, #4ade80, transparent),
+                           radial-gradient(2px 2px at 180px 180px, #4ade80, transparent);
+        background-size: 200px 200px;
+        background-position: -20px -30px;
+        animation: move-stars 100s linear infinite;
+      }
+    </style>
+</head>
+  <body class="bg-black">
+    <div id="root"></div>
+  </body>
+</html>
